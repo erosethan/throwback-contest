@@ -83,12 +83,11 @@ bool InterseccionSegmentos(const Linea& s, const Linea& t) {
     int t1 = ManoDerecha(s.p, s.q, t.p);
     int t2 = ManoDerecha(s.p, s.q, t.q);
     if (t1 == t2) {
-        if (!t1 && (PuntoEnSegmento(s.p, t) ||
-            PuntoEnSegmento(s.q, t) ||
-            PuntoEnSegmento(t.p, s) ||
-            PuntoEnSegmento(t.q, s)))
-            return true;
-        return false;
+        if (t1) return false;
+        return PuntoEnSegmento(s.p, t) ||
+               PuntoEnSegmento(s.q, t) ||
+               PuntoEnSegmento(t.p, s) ||
+               PuntoEnSegmento(t.q, s);
     }
     return ManoDerecha(t.p, t.q, s.p) !=
            ManoDerecha(t.p, t.q, s.q);
