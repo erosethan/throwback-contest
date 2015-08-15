@@ -39,13 +39,17 @@ int main() {
     while (true) {
         scanf("%d%d%d", &w, &h, &d);
         if (!w && !h && !d) break;
-        if (!first) printf("\n"); first = false;
+        if (!first) printf("\n");
+        first = false;
+
         for (int i = 0; i < h; ++i)
             for (int j = 0; j < w; ++j)
                 scanf("%lf", &blur[i][j]);
+
         Matriz original(w * h);
         for (int i = 0; i < w * h; ++i)
             original[i].resize(w * h + 1);
+        
         for (int i = 0; i < h; ++i) {
             for (int j = 0; j < w; ++j) {
                 int conteo = 0;
